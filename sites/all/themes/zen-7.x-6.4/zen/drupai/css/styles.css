@@ -1,0 +1,285 @@
+/**
+ * @file
+ * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
+ *
+ * When you turn on CSS aggregation at admin/config/development/performance, all
+ * of these @include files will be combined into a single file.
+ */
+
+/* HTML element (SMACSS base) rules */
+/*@import "normalize.css";*/
+
+/* Layout rules */
+/*@import "layouts/responsive.css";*/
+
+/* Component (SMACSS module) rules */
+/*@import "components/misc.css";*/
+/* Optionally, add your own components here. */
+/*@import "print.css";*/
+
+/* SMACSS theme rules */
+/* @import "theme-A.css"; */
+/* @import "theme-B.css"; */
+/******************以下是自定义样式************************************************************/
+ul li{
+	list-style-type:none;
+}
+.view-frontpage{
+	padding:4em 0 4em;
+}
+.about-grids{
+	color:#de52546;
+}
+.breadcrumb{
+	background-color:#ddd;
+}
+.breadcrumb ol li{
+	display:inline;
+}
+.radius{
+	 width:150px; 
+	 height:150px; 
+	 background-color:#66CCFF; 
+	 border-radius:75px;
+}
+.radius_font{
+	height:150px; 
+	line-height:150px; 
+	display:block; 
+	color:#FFF; 
+	text-align:center;
+	font-size:20px;
+	font-weight:bold;
+}
+body,#page{
+	font-family:"Noto Serif","serif","Microsoft YaHei","微软雅黑";
+	-webkit-font-smoothing: antialiased;  
+	font-size:12px;
+    line-height:1.42857;
+	color:#777;
+}
+#main_page{
+	background-color:#f1f1f1;
+}
+p{
+	font-size: 16px;
+	text-indent:2em;
+}
+p.submitted{
+	color:#336699;
+	text-align:center;
+}
+h1#page-title{/*文章标题,页面标题**/
+	font-size:36px;
+	color:#fff;
+	background-color:#336699;
+	line-height:1.8;
+}
+#page-title{
+	text-align:center;
+}
+.top-menu{
+	max-width:880px;
+}	
+.tb-megamenu .nav > li{
+	max-width:138px;
+}
+.tb-megamenu .nav > li > a{
+	padding:16px 15px;
+	margin-top:2px;
+}
+.tb-megamenu.style-black{
+	background:none;
+	background-color:rgba(0,0,0,0.0);
+}
+.field-item p{
+  line-height:1.8em;
+  letter-spacing:2px;
+}
+h2.node-title{
+  font-size:28px;
+  line-height:1.8em;
+  border-right:5px #336699 solid;
+  padding-right:5px;
+  margin:5px 0;
+  text-align:end;
+}
+a:hover{
+  text-decoration:none;
+}
+.sidebars .block,.view-mode-full,article.node-teaser{/*列表、全文显示内容的背景边框*/
+	border:1px #ddd solid;
+	background-color:#fff;
+	margin-bottom:10px;
+	padding:10px 0px;
+}
+
+.ndheader{
+	background:#1a1a1a;
+}
+.field-type-image{
+	float:left;
+	margin:0 10px 10px 0;
+}
+.field-type-taxonomy-term-reference{/**分类的类别显示*/
+	float:left;
+	vertical-align: bottom;
+	margin-right:15px;	
+}
+ul.inline{
+	float:right;
+}
+ul.inline li{
+	display:inline-block;
+	list-style:none;
+}
+.field-type-text-with-summary{/**摘要内容*/
+	min-height:135px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+.node-readmore a,.comment_forbidden span a{/**查看更多链接的颜色,文章底部登录按钮*/
+	background:#336699;
+	padding:5px 12px;
+	font-weight:bold;
+	color:#fff;
+}
+.node-readmore a:hover,.comment_forbidden span a:hover{
+	background:#7bb9e0;
+}
+.sidebars .block ul{/**模块里的列表间隔**/
+	padding:10px;
+}
+.sidebars .block ul li{/**模块里的列表**/
+	width:99%;
+	line-height:28px;	
+}
+.block-title{/**模块的标题**/
+	font-size:20px;
+	line-height:35px;
+	height:35px;
+	padding-left:10px;
+	background-color:#336699;
+	color:#fff;
+}
+.more-link{
+	position:absolute;
+	right:25px;
+	top:10px;
+	font-size:16px;
+	line-height:35px;
+	height:35px;
+}
+.more-link a{
+	color:#fff;
+}
+
+.form-item-name,.form-item-pass,.form-item-mail{/**登录框***/
+	padding-left:10px;
+	margin-top:15px;
+}
+.form-item-mail{
+	margin-top:35px;
+}
+.form-item-name label,.form-item-pass label,.form-item-mail label{
+	width:20%;
+}
+#edit-account .description{
+	text-align:center;
+	line-height:1.8em;
+}
+#edit-name,#edit-pass ,#edit-mail {
+	outline: none;
+	padding:6px 8px;
+	background: none;
+	width: 75%;
+	border:1px solid;
+	font-size:1em;
+	color:#1f1f1f;
+}
+#edit-actions--2{
+	width:80px;
+	margin:0 auto;
+	text-align:center;
+}
+#edit-submit--2[value="登录"],#edit-submit[value="创建新帐号"]{
+	width:80px;
+	background-color:#336699;
+	color:#fff;
+	line-height:28px;
+	border:none;
+}
+#block-statistics-popular .item-list{
+	margin:15px auto;
+	width:95%;
+	
+}
+#block-statistics-popular .item-list h3{
+	font-size:16px;
+	color:#fff;
+	background-color:#c40000;
+	line-height:30px;
+	text-align:center;
+}
+#edit-actions{
+	text-align:center;
+}
+
+.sidebar{
+	padding-left:15px;
+}
+.field-name-body{
+	padding:15px 0;
+}
+.view-id-frontpage article.node-teaser{
+	border:none;
+}
+div.header-grids{
+	width:25%;
+	margin:0 auto;
+	text-align:center;
+}
+.header-grids .block-user{ /**在首页的登录框***/
+	border:1px #336699 solid; 
+	padding-bottom:20px;
+}
+#user-login-form{
+	text-align:center;
+}
+#user-login-form ul li,.tabs-primary__tab{
+	display:inline;
+	padding:10px;
+}
+.article img{/*文章里的图片设置*/
+	max-width:100%
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

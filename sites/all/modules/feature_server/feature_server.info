@@ -1,0 +1,7 @@
+;$id$
+name = feature_server
+description = 特色服务信息只显示在网站首页
+core = 7.x
+package = Content types
+version = 7.x-1
+files[] = feature_server.module

@@ -1,0 +1,81 @@
+<?php
+/**
+ * Author: 烽行天下
+ * Date: 2018\11\3 0001
+ * Time: 15:05
+ * QQ: 233238526
+ */
+//安装内容类型
+function activity_install(){
+  node_types_rebuild();
+  $types = node_type_get_types();
+  node_add_body_field($types['activity']);
+  $body_instance = field_info_instance('node', 'body','activity');
+  $body_instance['type'] = 'text';
+  field_update_instance($body_instance);
+
+  foreach (_activity_installed_fields() as $field){
+    field_create_field($field);
+  }
+
+  foreach (_activity_installed_instances() as $instance){
+    $instance['entity_type'] = 'node';
+    $instance['bundle'] = 'activity';
+    field_create_instance($instance);
+  }
+}
+
+function _activity_installed_fields() {
+  $t = get_t();
+  return array(
+    'title_img' => array(
+      'field_name' => 'title_img',
+      'label' => $t('标题图片'),
+      'type' => 'image',
+    ),
+  );
+}
+
+function _activity_installed_instances(){
+  $t = get_t();
+  return array(
+    'title_img' => array(
+      'field_name' => 'title_img',
+      'label' => $t('标题图片'),
+      'type' => 'image',
+      'widget'=>array(
+        'type' => 'image',
+        'settings' => array(
+          'uri_scheme' => variable_get('file_default_scheme', 'public'),
+          'default_image' => 0,
+          'max_filesize' => '800kb',
+        )
+      ),
+    ),
+  );
+}
+
+//卸载内容类型
+function activity_uninstall(){
+  $sql = 'SELECT nid FROM {node} n WHERE n.type = :type';
+  $result = db_query($sql,array(':type'=>'activity'));
+  $nids = array();
+  foreach ($result as $row){
+    $nids[] = $row->nid;
+  }
+
+  node_delete_multiple($nids);
+
+  foreach (array_keys(_activity_installed_fields()) as $field){
+    field_delete_field($field);
+  }
+
+  $instances = field_info_instances('node','activity');
+
+  foreach ($instances as $instance_name => $instance){
+    field_delete_instance($instance);
+  }
+
+  node_type_delete('activity');
+  field_purge_batch(1000);
+}

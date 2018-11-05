@@ -1,0 +1,44 @@
+screenshot  = screenshot.png
+name = book
+core = 7.x
+;删除系统自带样式
+stylesheets[all][] = system.menus.css
+stylesheets[all][] = system.messages.css
+stylesheets[all][] = system.theme.css
+;添加自定义样式
+stylesheets[all][] = css/style.css
+
+;添加自定义javascript
+scripts[] = js/jquery.1.8.3.js
+scripts[] = js/jquery.SuperSlide.js
+scripts[] = js/index.js
+
+;添加自定义区域
+regions[header] = Header
+regions[main_menu] = Main Menu
+regions[search] = Search
+regions[bread_navigation] = Bread Navigation
+regions[hot_topic] = Hot Topic
+regions[feature] = Feature
+regions[boutique] = Boutique
+regions[content] = Content
+regions[about] = About
+regions[notice] = Notice
+regions[resource] = Resource
+regions[right_column] = Right Column
+regions[footer_column_first]  = Footer Column First
+regions[footer_column_second] = Footer Column Second
+regions[footer_column_third]  = Footer Column Third
+regions[footer_column_fourth] = Footer Column Fourth
+regions[footer_column_fifth]  = Footer Column Fifth
+regions[bottom]  = Page bottom
+
+;添加页面特性
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu

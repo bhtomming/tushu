@@ -1,0 +1,68 @@
+<?php
+/**
+ * Author: 烽行天下
+ * Date: 2018\11\3 0001
+ * Time: 16:39
+ * QQ: 233238526
+ */
+
+function notice_node_info(){
+  return array(
+    'notice' => array(
+      'name' => t('网站通知公告'),
+      'description' => t('添加网站网站通知公告内容'),
+      'base' => 'notice',
+      'has_title' => TRUE,
+      'title_label' => t('标题'),
+      'help' => t('网站通知公告帮助信息'),
+    ),
+  );
+}
+
+function notice_permission(){
+  return array(
+    'create notice' => array(
+      'title' => t('创建网站通知公告'),
+      'description' => t('这里打勾用户可以创建网站通知公告'),
+    ),
+    'edit own notice' => array(
+      'title' => t('只能编辑自己发布的网站通知公告'),
+      'description' => t('这里打勾用户可以编辑自己发布的网站通知公告'),
+    ),
+    'edit any notice' => array(
+      'title' => t('可以编辑任何人发布的网站通知公告'),
+      'description' => t('这里打勾用户可以编辑任何人发布的网站通知公告'),
+    ),
+    'delete own notice' => array(
+      'title' => t('删除自己的网站通知公告'),
+      'description' => t('用户只能删除自己的网站通知公告'),
+    ),
+    'delete any notice' => array(
+      'title' => t('删除任何人发的的网站通知公告'),
+      'description' => t('用户能删除任何人发布的网站通知公告'),
+    ),
+  );
+}
+
+function notice_node_access($op,$node,$account){
+  $is_author = $account->id == $node->id;
+  switch ($op){
+    case 'create':
+      if(user_access('create notice',$account)){
+        return NODE_ACCESS_ALLOW;
+      }
+    case 'update':
+      if($is_author && user_access('edit own notice',$account)||user_access('edit any notice',$account)){
+        return NODE_ACCESS_ALLOW;
+      }
+    case 'delete':
+      if($is_author && user_access('delete own notice',$account)||user_access('delete any notice',$account)){
+        return NODE_ACCESS_ALLOW;
+      }
+  }
+}
+
+
+function notice_form($node,$form_state){
+  return node_content_form($node,$form_state);
+}

@@ -1,0 +1,38 @@
+<?php
+function friend_link_schema(){
+  $schema['friend_link'] = array(
+    'description' => t('友情链接'),
+    'fields' => array(
+      'lid' => array(
+        'description' => t('友情链接的ID'),
+        'type' => 'serial',//serial 是自动增加字段,
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'site_name' => array(
+        'description' => t('友情链接网站的名称'),
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'link' => array(
+        'description' => t('友情链接网站地址'),
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'site_type' => array(
+        'description' => t('友情链接网站的内容方向'),
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+    ),
+    'primary key' => array('lid'),
+  );
+  return $schema;
+}
+
+function friend_link_uninstall(){
+  variable_del('friend_link');
+}
+
+
+

@@ -1,0 +1,7 @@
+;$id$
+name = friend_link
+description = 友情链接模块
+core = 7.x
+version = 7.x-1
+package = 网站优化
+files[] = friend_link.module

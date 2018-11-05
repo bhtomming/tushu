@@ -1,0 +1,67 @@
+<?php
+
+function friend_link_menu(){
+  $items['admin/structure/friend_link/add'] = array(
+    'title' => t('添加友情链接信息'),
+    'description' => t('添加友情链接信息页面'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('friend_link_form'),
+    'file' => 'friend_link.admin.inc',
+    'access arguments' => array('friend_link submit'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['admin/structure/friend_link'] = array(
+    'title' => t('友情链接信息管理'),
+    'description' => t('友情链接信息管理页面'),
+    'page callback' => 'friend_link_view',
+    'file' => 'friend_link.admin.inc',
+    'access arguments' => array('friend_link view'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+function friend_link_permission(){
+  return array(
+    'friend_link submit' => array(
+      'title' => t('添加友情链接'),
+    ),
+    'friend_link view' => array(
+      'title' => t('查看友情链接'),
+    ),
+    'friend_link edit' => array(
+      'title' => t('编辑友情链接'),
+    ),
+    'friend_link delete' => array(
+      'title' => t('删除友情链接'),
+    )
+  );
+}
+
+function friend_link_access($op,$account){
+  switch ($op){
+    case 'create':
+      if(user_access('friend_link submit',$account)){
+        return NODE_ACCESS_ALLOW;
+      }
+    case 'update':
+      if(user_access('friend_link edit',$account)){
+        return NODE_ACCESS_ALLOW;
+      }
+    case 'delete':
+      if(user_access('friend_link delete',$account)){
+        return NODE_ACCESS_ALLOW;
+      }
+  }
+}
+
+function friend_link_theme(){
+  return array(
+    'friend_link' => array(
+      'template' => 'templates/friend_link',
+      'variables' => array(),
+    )
+  );
+}
+
+

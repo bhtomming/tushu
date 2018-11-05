@@ -1,0 +1,69 @@
+<?php
+/**
+ * Author: 烽行天下
+ * Date: 2018\11\3 0001
+ * Time: 16:39
+ * QQ: 233238526
+ */
+
+function resources_node_info(){
+  return array(
+    'resources' => array(
+      'name' => t('数字资源'),
+      'description' => t('添加网站数字资源内容'),
+      'base' => 'resources',
+      'has_title' => FALSE,
+      'help' => t('请填写正确的链接及图片'),
+    ),
+  );
+}
+
+function resources_permission(){
+  return array(
+    'create resources' => array(
+      'title' => t('创建数字资源'),
+      'description' => t('这里打勾用户可以创建数字资源'),
+    ),
+    'edit own resources' => array(
+      'title' => t('只能编辑自己发布的数字资源'),
+      'description' => t('这里打勾用户可以编辑自己发布的数字资源'),
+    ),
+    'edit any resources' => array(
+      'title' => t('可以编辑任何人发布的数字资源'),
+      'description' => t('这里打勾用户可以编辑任何人发布的数字资源'),
+    ),
+    'delete own resources' => array(
+      'title' => t('删除自己的数字资源'),
+      'description' => t('用户只能删除自己的数字资源'),
+    ),
+    'delete any resources' => array(
+      'title' => t('删除任何人发布的数字资源'),
+      'description' => t('用户能删除任何人发布的数字资源'),
+    ),
+  );
+}
+
+function resources_node_access($op,$node,$account){
+  $is_author = $account->id == $node->id;
+  switch ($op){
+    case 'create':
+      if(user_access('create resources',$account)){
+        return NODE_ACCESS_ALLOW;
+      }
+    case 'update':
+      if($is_author && user_access('edit own resources',$account)||user_access('edit any resources',$account)){
+        return NODE_ACCESS_ALLOW;
+      }
+    case 'delete':
+      if($is_author && user_access('delete own resources',$account)||user_access('delete any resources',$account)){
+        return NODE_ACCESS_ALLOW;
+      }
+  }
+}
+
+
+function resources_form($node,$form_state){
+  $form = node_content_form($node,$form_state);
+  $form['body'][LANGUAGE_NONE][0]['summary']['#access'] = FALSE;
+  return $form;
+}

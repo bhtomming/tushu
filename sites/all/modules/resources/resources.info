@@ -1,0 +1,6 @@
+;$id$
+name = resources
+description = 数字资源
+core = 7.x
+version = 7.x-1
+files[] = resources.module
