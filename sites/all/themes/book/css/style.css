@@ -171,7 +171,7 @@ em, i { font-style: normal; }
 .leftList .nav li { float: left; margin: 0 20px; height: 60px; line-height: 60px; }
 .leftList .nav li a { font-size: 18px; color: #333; }
 .leftList .nav li.on a { color: #3165c3; }
-.leftList .itemList { padding: 0 30px; }
+.leftList .itemList,.leftList .view-taxonomy-term { padding: 0 30px; }
 .leftList .item { width: 790px; height: 228px; border-bottom: 1px solid #dddddd; }
 .leftList .item a { display: block; height: 189px; }
 .leftList .item .pic { width: 200px; height: 150px; margin-top: 39px; }
@@ -195,10 +195,10 @@ em, i { font-style: normal; }
 .leftList .link li a { float: left; color: #666; }
 .leftList .link li:hover a { float: left; color: #3165c3; }
 
-.pages { margin: 40px 0 0; padding-bottom: 38px; text-align: center; }
-.pages a { display: inline-block; height: 32px; line-height: 32px; background:#fff; border: 1px solid #ccc; text-align: center; color:#333; padding: 0 12px; margin: 0 2px; }
-.pages a:hover { background-color:#3165c3; border:1px solid #3165c3; color:#fff; }
-.pages span { display: inline-block; height: 34px; line-height: 34px; background-color:#3165c3; color:#fff; text-align: center; padding: 0 14px; margin: 0 2px; }
+.pages,.pager { margin: 40px 0 0; padding-bottom: 38px; text-align: center; }
+.pages a,.pager li { display: inline-block; height: 32px; line-height: 32px; background:#fff; border: 1px solid #ccc; text-align: center; color:#333; padding: 0 12px; margin: 0 2px; }
+.pages a:hover,.pager li:hover { background-color:#3165c3; border:1px solid #3165c3; color:#fff; }
+.pages span,.pager .pager-current { display: inline-block; height: 34px; line-height: 34px; background-color:#3165c3; color:#fff; text-align: center; padding: 0 14px; margin: 0 2px; }
 .rightRec { width: 320px; }
 .rightRec .newsList { padding: 0 30px 30px 30px; border-top: 2px solid #3165c3; background-color: #fff; margin-bottom: 30px; }
 .rightRec .titl { height: 62px; padding-top: 6px; line-height: 62px; border-bottom: 1px solid #ddd; }

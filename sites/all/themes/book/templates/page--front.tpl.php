@@ -8,8 +8,10 @@
 
 
   //$notice
-  $servers = '';//get_feature_server();
-  $boutiques = '';//get_boutique();
+$slider_img = get_slider();
+  $servers = get_feature_server();
+  $boutiques = get_boutique();
+$notice = get_notice();
 ?>
 <div class="header">
   <div class="bg">
@@ -19,7 +21,7 @@
         <div class="topInfo fr">
           <ul class="clear">
             <li class="icon icon1"><a href="" target="_blank">问图书馆员</a></li>
-            <li class="icon icon2"><a href="" target="_blank">登录</a></li>
+            <li class="icon icon2"><a href="/user/login" target="_blank">登录</a></li>
           </ul>
         </div>
       </div>
@@ -81,7 +83,7 @@
         <a href="">
           <i class="icon icon<?php print $i++; ?>"></i>
           <p class="name"><?php print $server->title; ?></p>
-          <p class="text"><?php print $server->body_value; ?></p>
+          <p class="text"><?php print substr($server->body_value,0,20); ?></p>
         </a>
       </div>
       <?php endforeach; ?>
@@ -168,21 +170,29 @@
   <div class="wrap">
     <div class="top clear">
       <div class="links fl">
+        <div class="tit">友情链接</div>
+        <span class="line"></span>
         <?php if($page['footer_column_first']): ?>
           <?php print render($page['footer_column_first']); ?>
         <?php endif; ?>
       </div>
       <div class="links fl">
+        <div class="tit">常用网站</div>
+        <span class="line"></span>
         <?php if($page['footer_column_second']): ?>
           <?php print render($page['footer_column_second']); ?>
         <?php endif; ?>
       </div>
       <div class="links fl">
+        <div class="tit">相关网站</div>
+        <span class="line"></span>
         <?php if($page['footer_column_third']): ?>
           <?php print render($page['footer_column_third']); ?>
         <?php endif; ?>
       </div>
       <div class="links fl">
+        <div class="tit">联系方式</div>
+        <span class="line"></span>
         <?php if($page['footer_column_fourth']): ?>
           <?php print render($page['footer_column_fourth']); ?>
         <?php endif; ?>

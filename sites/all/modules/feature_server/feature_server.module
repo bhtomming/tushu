@@ -45,7 +45,8 @@ function feature_server_permission(){
 }
 
 function feature_server_node_access($op,$node,$account){
-  $is_author = $account->id == $node->id;
+
+  $is_author = $account->uid == $node->uid;
   switch ($op){
     case 'create':
       if(user_access('create feature_server',$account)){

@@ -6,33 +6,26 @@
  * QQ: 233238526
  */
 ?>
-<article class="node-<?php print $node->nid; ?> <?php print $classes; ?>  clearfix"<?php print $attributes; ?>>
 
-  <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
-    <header>
-      <?php print render($title_prefix); ?>
+    <div class="topInfo">
       <?php if (!$page && $title): ?>
-        <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+        <h1><?php print $title; ?></h1>
       <?php endif; ?>
-      <?php print render($title_suffix); ?>
-    </header>
-  <?php endif; ?>
-  <div class="col-md-12">
-    <?php if ($display_submitted): ?>
-      <p class="submitted">
-        <?php print $user_picture; ?>
-        <?php print $submitted; ?>
-      </p>
-    <?php endif; ?>
-    <?php
-    // We hide the comments and links now so that we can render them later.
-    hide($content['comments']);
-    hide($content['links']);
-    print render($content);
-    ?>
-  </div>
-  <?php print render($content['links']); ?>
+      <div class="dec clear">
+        <p><span>发布时间：<?php print $date; ?></span>来源：<?php print user_load($uid)->name; ?></p>
+      </div>
+    </div>
+    <div class="article">
+      <?php print render($content); ?>
+    </div>
+    <div class="link">
+      <ul>
+        <?php if($pre_node = node_load($node->nid - 1)): ?>
+        <li><span>上一篇：</span><a href="/node/<?php print $pre_node->nid; ?>"><?php print $pre_node->title; ?></a></li>
+        <?php endif; ?>
+        <?php if($next_node = node_load($node->nid + 1)): ?>
+        <li><span>下一篇：</span><a href="/node/<?php print $next_node->nid; ?>"><?php print $next_node->title; ?></a></li>
+        <?php endif; ?>
+      </ul>
+    </div>
 
-  <?php print render($content['comments']); ?>
-
-</article>

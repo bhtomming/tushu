@@ -64,4 +64,53 @@ function friend_link_theme(){
   );
 }
 
+function friend_link_block_info(){
+  $blocks = array();
+  $blocks['friend_link_block'] = array(
+    'info' => t('友情链接'),
+  );
+  $blocks['used_link_block'] = array(
+    'info' => t('常用网站'),
+  );
+  $blocks['relation_link_block'] = array(
+    'info' => t('相关网站')
+  );
+  return $blocks;
+}
+
+function friend_link_block_view($delta=''){
+  $block = array();
+  switch ($delta){
+    case 'friend_link_block':
+      $block['subject'] = t('友情链接');
+      $block['content'] = friend_link_get_data(1);
+      break;
+    case 'used_link_block':
+      $block['subject'] = t('常用网站');
+      $block['content'] = friend_link_get_data(2);
+      break;
+    case 'relation_link_block':
+      $block['subject'] = t('相关网站');
+      $block['content'] = friend_link_get_data(3);
+      break;
+    default:
+      break;
+  }
+  return $block;
+}
+
+function friend_link_get_data($type){
+  $query = db_select('friend_link','f');
+  $query->fields('f');
+  $query->condition('site_type',$type);
+  $query->range(0,4);
+  $rows = $query->execute();
+  $output = "<ul>";
+  foreach ($rows as $row){
+    $output .= '<li><a href="'.$row->link.'">'.$row->site_name.'</a></li>';
+  }
+  $output .= '</ul>';
+  return $output;
+}
+
 

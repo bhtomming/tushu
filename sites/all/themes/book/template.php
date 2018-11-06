@@ -58,10 +58,11 @@ function book_menu_tree__main_menu($variables) {
   return '<ul class="clear">' . $variables['tree'] . '</ul>';
 }
 
+
 function get_notice(){
   $query = db_select('node','n');
   $query->join('field_data_body','b','b.entity_id = n.nid');
-  $query->condition('n.type', 'notice','=');
+  $query->condition('n.type', 'recommend','=');
   $query->fields('n',['title']);
   $query->fields('b',['body_value']);
   $query->orderBy('n.nid','DESC');
@@ -71,8 +72,9 @@ function get_notice(){
 
 function get_slider(){
   $query = db_select('file_managed','f');
-  $query ->join('field_revision_field_slider_img', 'i','f.fid = i.field_slider_img_fid');
+  $query ->join('field_revision_field_image', 'i','f.fid = i.field_image_fid');
   $query ->condition('i.deleted',0,'=');
+  $query ->condition('i.bundle','slider','=');
   $query->fields('f',['uri']);
   $query->orderBy('f.fid','DESC');
   $query->range(0,3);
@@ -102,6 +104,22 @@ function get_boutique(){
   $query->range(0,5);
   return $query->execute();
 }
+
+function get_resources(){
+  $query = db_select('node','n');
+  $query->join('field_data_image','t','t.entity_id = n.nid');
+  $query->join('file_managed','f','f.fid = t.field_image_fid');
+  $query->join('taxonomy_index','ti','ti.nid = n.nid');
+  $query->join('taxonomy_term_data','t','t.tid = ti.tid');
+  $query->condition('t.name', '数字资源','=');
+  $query->fields('n',['nid','title']);
+  $query->fields('f',['uri']);
+  $query->orderBy('n.created','DESC');
+  $query->range(0,5);
+  return $query->execute();
+}
+
+
 
 
 

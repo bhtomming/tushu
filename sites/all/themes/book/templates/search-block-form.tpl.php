@@ -13,7 +13,7 @@ $search["search_block_form"]= str_replace("请输入您想搜索的关键词。"
 $search["search_block_form"] = str_replace('class="form-text"', 'class="searchText fl"  placeholder="搜索公共图书馆的资源"', $search["search_block_form"]);
 
 /* Replace button input type with image  */
-$search["submit"]=str_replace('input class="form-submit"', 'class="submitBtn fl"', $search["submit"]);
+$search["submit"]=str_replace('input class="form-submit"', 'class="submitBtn fl"', $search["actions"]);
 ?>
 <select name="">
   <option value="">图书馆之城1</option>

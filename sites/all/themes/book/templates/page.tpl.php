@@ -6,7 +6,7 @@
  * QQ: 233238526
  */
 ?>
-<div class="header main">
+<div class="header">
   <div class="bg">
     <div class="wrap">
       <div class="top clear">
@@ -14,32 +14,35 @@
         <div class="topInfo fr">
           <ul class="clear">
             <li class="icon icon1"><a href="" target="_blank">问图书馆员</a></li>
-            <li class="icon icon2"><a href="" target="_blank">登录</a></li>
+            <li class="icon icon2"><a href="/user/login" target="_blank">登录</a></li>
           </ul>
         </div>
       </div>
       <div class="searchBg">
         <div class="searchWrap">
-          <form action="" method="post">
-            <select name="">
-              <option value="">图书馆之城1</option>
-              <option value="">图书馆之城2</option>
-              <option value="">图书馆之城3</option>
-              <option value="">图书馆之城4</option>
-              <option value="">图书馆之城5</option>
-            </select>
-            <?php print render($page['search']); ?>
-          </form>
+          <div class="clear">
+            <?php if($page['search']): ?>
+              <?php print render($page['search']); ?>
+            <?php endif; ?>
+          </div>
         </div>
       </div>
       <div class="nav">
-        <?php print render($page['main_menu']); ?>
+        <?php if($page['main_menu']): ?>
+          <?php print render($page['main_menu']); ?>
+        <?php endif; ?>
       </div>
     </div>
   </div>
 </div>
 <div class="subNavig main">
-  <div class="wrap">当前位置：<?php print render($page['bread_navigation']) ?></div>
+  <div class="wrap"><?php if($breadcrumb): ?>
+      <?php
+      $breadcrumb = str_replace('<h2 class="element-invisible">当前位置</h2><div class="breadcrumb">','<div class="wrap">当前位置：',$breadcrumb);
+      print $breadcrumb; endif;
+      ?>
+  </div>
+  <?php print $messages; ?>
 </div>
 <div class="main">
   <div class="wrap clear">
