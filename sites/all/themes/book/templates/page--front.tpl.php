@@ -21,7 +21,7 @@ $notice = get_notice();
         <div class="topInfo fr">
           <ul class="clear">
             <li class="icon icon1"><a href="" target="_blank">问图书馆员</a></li>
-            <li class="icon icon2"><a href="/user/login" target="_blank">登录</a></li>
+            <li class="icon icon2"><a href="" target="_blank">登录</a></li>
           </ul>
         </div>
       </div>

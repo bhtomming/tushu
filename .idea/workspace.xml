@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ba99b06-c94a-4a12-864b-4acc5da97a4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sites/all/themes/book/templates/views-view-list--meta-report--block.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sites/all/modules/activity/activity.module" beforeDir="false" afterPath="$PROJECT_DIR$/sites/all/modules/activity/activity.module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sites/all/modules/feature_server/feature_server.module" beforeDir="false" afterPath="$PROJECT_DIR$/sites/all/modules/feature_server/feature_server.module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sites/all/modules/friend_link/friend_link.module" beforeDir="false" afterPath="$PROJECT_DIR$/sites/all/modules/friend_link/friend_link.module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sites/all/modules/resources/resources.module" beforeDir="false" afterPath="$PROJECT_DIR$/sites/all/modules/resources/resources.module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sites/all/themes/book/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/sites/all/themes/book/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sites/all/themes/book/template.php" beforeDir="false" afterPath="$PROJECT_DIR$/sites/all/themes/book/template.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sites/all/themes/book/templates/node.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/sites/all/themes/book/templates/node.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sites/all/themes/book/templates/page--front.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/sites/all/themes/book/templates/page--front.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sites/all/themes/book/templates/page.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/sites/all/themes/book/templates/page.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sites/all/themes/book/templates/search-block-form.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/sites/all/themes/book/templates/search-block-form.tpl.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,12 +16,13 @@
     <session id="-870527175">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -43,7 +34,7 @@
           <entry key="install" value="14" />
           <entry key="js" value="2" />
           <entry key="module" value="19" />
-          <entry key="php" value="80" />
+          <entry key="php" value="83" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
@@ -52,7 +43,7 @@
           <entry key="CSS" value="4" />
           <entry key="HTML" value="3" />
           <entry key="JavaScript" value="2" />
-          <entry key="PHP" value="119" />
+          <entry key="PHP" value="122" />
           <entry key="PLAIN_TEXT" value="21" />
         </counts>
       </usages-collector>
@@ -80,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/friend_link/friend_link.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2301">
-              <caret line="92" column="28" lean-forward="true" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="34" />
+            <state relative-caret-position="3588">
+              <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -89,8 +80,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/book/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+            <state relative-caret-position="2808">
+              <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
               <folding>
                 <element signature="e#6#85#0#PHP" expanded="true" />
               </folding>
@@ -98,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/book/templates/page--front.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+            <state relative-caret-position="-1833">
+              <caret line="81" column="24" lean-forward="true" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -110,26 +101,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/activity/activity.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
+            <state relative-caret-position="1677">
               <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/feature_server/feature_server.module">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
               <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/themes/book/templates/page.tpl.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -191,13 +173,13 @@
         <option value="$PROJECT_DIR$/sites/all/themes/book/css/style.css" />
         <option value="$PROJECT_DIR$/sites/all/themes/book/templates/views-view-list--meta-report--block.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/book/templates/node.tpl.php" />
-        <option value="$PROJECT_DIR$/sites/all/themes/book/templates/page.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/book/templates/search-block-form.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/activity/activity.module" />
         <option value="$PROJECT_DIR$/sites/all/modules/feature_server/feature_server.module" />
         <option value="$PROJECT_DIR$/sites/all/modules/resources/resources.module" />
         <option value="$PROJECT_DIR$/sites/all/themes/book/template.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/book/templates/page--front.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/book/templates/page.tpl.php" />
       </list>
     </option>
   </component>
@@ -242,6 +224,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -346,7 +329,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -391,18 +373,19 @@
       <workItem from="1541211155795" duration="19182000" />
       <workItem from="1541291829270" duration="25122000" />
       <workItem from="1541378421707" duration="24964000" />
-      <workItem from="1541464085685" duration="19333000" />
+      <workItem from="1541464085685" duration="19932000" />
+      <workItem from="1541550625123" duration="2475000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139056000" />
+    <option name="totallyTimeSpent" value="142130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26599148" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26865673" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -430,23 +413,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/menu/menu.module">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8307">
-          <caret line="387" column="35" lean-forward="true" selection-start-line="387" selection-start-column="35" selection-end-line="387" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/menu/menu.api.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/system/system.module">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15288">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/menu/menu.admin.inc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -679,34 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/book/templates/page.tpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/activity/activity.module">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/feature_server/feature_server.module">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/friend_link/friend_link.module">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2301">
-          <caret line="92" column="28" lean-forward="true" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/resources/resources.module">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2301">
@@ -721,20 +659,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/friend_link/friend_link.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3588">
+          <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/book/template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+        <state relative-caret-position="2808">
+          <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
           <folding>
             <element signature="e#6#85#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/activity/activity.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1677">
+          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/zen-7.x-6.4/zen/drupai/templates/node--article.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1170" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/zen-7.x-6.4/zen/drupai/templates/page--front.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2106" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/zen-7.x-6.4/zen/drupai/templates/page.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4290">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/book/templates/page--front.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1833">
+          <caret line="81" column="24" lean-forward="true" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/book/templates/page.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/feature_server/feature_server.module">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
         </state>
       </provider>
     </entry>
