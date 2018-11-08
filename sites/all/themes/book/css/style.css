@@ -166,11 +166,11 @@ em, i { font-style: normal; }
 .subNavig a { font-size: 14px; color: #666; }
 .subNavig span { color: #666; padding: 0 5px; }
 .leftList { width: 850px; margin-bottom: 50px; border-top: 2px solid #3165c3; background-color: #fff; }
-.leftList .nav { width: 100%; height: 60px; background-color: #eeeeee; }
-.leftList .nav ul { padding-left: 10px; }
-.leftList .nav li { float: left; margin: 0 20px; height: 60px; line-height: 60px; }
-.leftList .nav li a { font-size: 18px; color: #333; }
-.leftList .nav li.on a { color: #3165c3; }
+.leftList .nav,.leftList .tabs { width: 100%; height: 60px; background-color: #eeeeee; }
+.leftList .nav ul,.leftList .tabs ul { padding-left: 10px; }
+.leftList .nav li,.leftList .tabs li { float: left; margin: 0 20px; height: 60px; line-height: 60px; }
+.leftList .nav li a,.leftList .tabs li a { font-size: 18px; color: #333; }
+.leftList .nav li.on a,.leftList .tabs li.active a { color: #3165c3; }
 .leftList .itemList,.leftList .view-taxonomy-term { padding: 0 30px; }
 .leftList .item { width: 790px; height: 228px; border-bottom: 1px solid #dddddd; }
 .leftList .item a { display: block; height: 189px; }

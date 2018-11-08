@@ -1,0 +1,69 @@
+<?php
+/**
+ * Author: 烽行天下
+ * Date: 2018\11\3 0001
+ * Time: 16:39
+ * QQ: 233238526
+ */
+
+function about_node_info(){
+  return array(
+    'about' => array(
+      'name' => t('关于深图'),
+      'description' => t('添加网站关于深图内容'),
+      'base' => 'about',
+      'has_title' => TRUE,
+      'title_label' => t('标题'),
+      'help' => t('关于深图帮助信息'),
+    ),
+  );
+}
+
+function about_permission(){
+  return array(
+    'create about' => array(
+      'title' => t('创建关于深图'),
+      'description' => t('这里打勾用户可以创建关于深图'),
+    ),
+    'edit own about' => array(
+      'title' => t('只能编辑自己发布的关于深图'),
+      'description' => t('这里打勾用户可以编辑自己发布的关于深图'),
+    ),
+    'edit any about' => array(
+      'title' => t('可以编辑任何人发布的关于深图'),
+      'description' => t('这里打勾用户可以编辑任何人发布的关于深图'),
+    ),
+    'delete own about' => array(
+      'title' => t('删除自己的关于深图'),
+      'description' => t('用户只能删除自己的关于深图'),
+    ),
+    'delete any about' => array(
+      'title' => t('删除任何人发的的关于深图'),
+      'description' => t('用户能删除任何人发布的关于深图'),
+    ),
+  );
+}
+
+function about_node_access($op,$node,$account){
+
+  $is_author = $account->uid == $node->uid;
+  switch ($op){
+    case 'create':
+      if(user_access('create about',$account)){
+        return NODE_ACCESS_ALLOW;
+      }
+    case 'update':
+      if($is_author && user_access('edit own about',$account)||user_access('edit any about',$account)){
+        return NODE_ACCESS_ALLOW;
+      }
+    case 'delete':
+      if($is_author && user_access('delete own about',$account)||user_access('delete any about',$account)){
+        return NODE_ACCESS_ALLOW;
+      }
+  }
+}
+
+
+function about_form($node,$form_state){
+  return node_content_form($node,$form_state);
+}

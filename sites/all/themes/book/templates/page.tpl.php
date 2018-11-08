@@ -36,17 +36,17 @@
   </div>
 </div>
 <div class="subNavig main">
-  <div class="wrap"><?php if($breadcrumb): ?>
+ <?php if($breadcrumb): ?>
       <?php
       $breadcrumb = str_replace('<h2 class="element-invisible">当前位置</h2><div class="breadcrumb">','<div class="wrap">当前位置：',$breadcrumb);
       print $breadcrumb; endif;
       ?>
-  </div>
   <?php print $messages; ?>
 </div>
 <div class="main">
   <div class="wrap clear">
     <div class="leftList fl">
+      <?php if($tabs){ print render($tabs); } ?>
       <?php print render($page['content']); ?>
     </div>
     <div class="rightRec fr">

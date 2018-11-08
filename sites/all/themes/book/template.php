@@ -119,6 +119,32 @@ function get_resources(){
   return $query->execute();
 }
 
+function node_pre($nid){
+  $node = node_load($nid);
+  $type = $node->type;
+  $query = db_select('node','n');
+  $query->fields('n');
+  $query->condition('n.type', $type,'=');
+  $query->condition('n.nid', $nid,'<');
+  $query->orderBy('n.nid','DESC');
+  $node_pre = $query->execute()->fetchObject();
+
+  return is_object($node_pre)? $node_pre : null;
+}
+
+function node_next($nid){
+  $node = node_load($nid);
+  $type = $node->type;
+
+  $query = db_select('node','n');
+  $query->fields('n');
+  $query->condition('n.type', $type,'=');
+  $query->condition('n.nid', $nid,'>');
+  $query->orderBy('n.nid','ACS');
+  $node_next = $query->execute()->fetchObject();
+
+  return is_object($node_next)? $node_next : null;
+}
 
 
 

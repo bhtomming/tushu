@@ -1,6 +1,8 @@
 ;$id$
 name = resources
-description = 数字资源
+description = 资源导航内容类型
 core = 7.x
 version = 7.x-1
+package = Content types
 files[] = resources.module
+dependencies[] = node

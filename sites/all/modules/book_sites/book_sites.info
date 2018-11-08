@@ -1,0 +1,8 @@
+;$id$
+name = book_sites
+description = 网站图书官网内容类型
+core = 7.x
+package = Content types
+version = 7.x-1
+files[] = book_sites.module
+dependencies[] = node
