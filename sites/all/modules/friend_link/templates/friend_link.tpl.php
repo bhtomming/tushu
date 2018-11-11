@@ -8,12 +8,12 @@
 
 ?>
 
-<div id=”searchresults” class=”clearfix”>
+<div id="searchresults" class="clearfix">
    <?php foreach($rows as $link){?>
-    <div class=”feedback”>
-       <div class=”email”><?php print $link['site_name']?></div>
+    <div class="feedback">
+       <div class="email"><?php print $link['site_name']?></div>
       <?php print $link['site_type']?>
-       <div class=”created”><?php print $link['link']?></div>
+       <div class="created"><?php print $link['link']?></div>
        </div>
     <?php }?>
-   </div>
+</div>

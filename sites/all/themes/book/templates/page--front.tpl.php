@@ -10,8 +10,13 @@
   //$notice
 $slider_img = get_slider();
   $servers = get_feature_server();
-  $boutiques = get_boutique();
+  $boutiques = get_boutique('展览');
+  $activities = get_boutique('活动');
+  $trains = get_boutique('培训');
+  $lectures = get_boutique('讲座');
 $notice = get_notice();
+$notifies = get_notices();
+$servers = get_feature_server();
 ?>
 <div class="header">
   <div class="bg">
@@ -80,10 +85,10 @@ $notice = get_notice();
     <div class="specItems">
       <?php $i = 1; foreach ($servers as $server): ?>
       <div class="item">
-        <a href="">
+        <a href="/node/<?php print $server->nid; ?>">
           <i class="icon icon<?php print $i++; ?>"></i>
           <p class="name"><?php print $server->title; ?></p>
-          <p class="text"><?php print substr($server->body_value,0,20); ?></p>
+          <p class="text"><?php print mb_substr($server->body_value,0,20,'utf8'); ?></p>
         </a>
       </div>
       <?php endforeach; ?>
@@ -108,6 +113,27 @@ $notice = get_notice();
         <ul class="clear">
           <?php foreach ($boutiques as $boutique): ?>
             <li><a href="node/<?php print $boutique->nid; ?>"><img src="<?php print file_create_url($boutique->uri); ?>" alt=""><div class="bg"></div><div class="text"><?php print $boutique->title; ?></div></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+      <div class="tabContent">
+        <ul class="clear">
+          <?php foreach ($lectures as $lecture): ?>
+            <li><a href="node/<?php print $lecture->nid; ?>"><img src="<?php print file_create_url($lecture->uri); ?>" alt=""><div class="bg"></div><div class="text"><?php print $lecture->title; ?></div></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+      <div class="tabContent">
+        <ul class="clear">
+          <?php foreach ($trains as $train): ?>
+            <li><a href="node/<?php print $train->nid; ?>"><img src="<?php print file_create_url($train->uri); ?>" alt=""><div class="bg"></div><div class="text"><?php print $train->title; ?></div></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+      <div class="tabContent">
+        <ul class="clear">
+          <?php foreach ($activities as $activitie): ?>
+            <li><a href="node/<?php print $activitie->nid; ?>"><img src="<?php print file_create_url($activitie->uri); ?>" alt=""><div class="bg"></div><div class="text"><?php print $activitie->title; ?></div></a></li>
           <?php endforeach; ?>
         </ul>
       </div>
@@ -147,6 +173,14 @@ $notice = get_notice();
         <div class="tit fl">通知公告</div>
         <div class="more fr"><a href="">更多>></a></div>
       </div>
+      <ul class="clear">
+        <ul class="notice">
+          <?php foreach($notifies as $notify): ?>
+            <li><a href="node/<?php print $notify->nid; ?>"><?php print substr_replace($notify->title,'...',90); ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+
+      </ul>
       <?php if($page['notice']): ?>
         <?php print render($page['notice']); ?>
       <?php endif; ?>
@@ -157,7 +191,7 @@ $notice = get_notice();
   <div class="wrap bw">
     <div class="title clear">
       <div class="tit fl">数字资源</div>
-      <div class="more fr"><a href="">更多>></a></div>
+      <div class="more fr"><a href="/resources/data">更多>></a></div>
     </div>
     <div class="partnerList">
       <?php if($page['resource']): ?>
@@ -169,39 +203,26 @@ $notice = get_notice();
 <div class="footer main">
   <div class="wrap">
     <div class="top clear">
-      <div class="links fl">
-        <div class="tit">友情链接</div>
-        <span class="line"></span>
-        <?php if($page['footer_column_first']): ?>
-          <?php print render($page['footer_column_first']); ?>
-        <?php endif; ?>
-      </div>
-      <div class="links fl">
-        <div class="tit">常用网站</div>
-        <span class="line"></span>
-        <?php if($page['footer_column_second']): ?>
-          <?php print render($page['footer_column_second']); ?>
-        <?php endif; ?>
-      </div>
-      <div class="links fl">
-        <div class="tit">相关网站</div>
-        <span class="line"></span>
-        <?php if($page['footer_column_third']): ?>
-          <?php print render($page['footer_column_third']); ?>
-        <?php endif; ?>
-      </div>
-      <div class="links fl">
-        <div class="tit">联系方式</div>
-        <span class="line"></span>
-        <?php if($page['footer_column_fourth']): ?>
-          <?php print render($page['footer_column_fourth']); ?>
-        <?php endif; ?>
-      </div>
-      <div class="wx fr">
-        <?php if($page['footer_column_fifth']): ?>
-          <?php print render($page['footer_column_fifth']); ?>
-        <?php endif; ?>
-      </div>
+      <?php if($page['footer_column_first']): ?>
+        <?php print render($page['footer_column_first']); ?>
+      <?php endif; ?>
+
+      <?php if($page['footer_column_second']): ?>
+        <?php print render($page['footer_column_second']); ?>
+      <?php endif; ?>
+
+      <?php if($page['footer_column_third']): ?>
+        <?php print render($page['footer_column_third']); ?>
+      <?php endif; ?>
+
+      <?php if($page['footer_column_fourth']): ?>
+        <?php print render($page['footer_column_fourth']); ?>
+      <?php endif; ?>
+
+
+      <?php if($page['footer_column_fifth']): ?>
+        <?php print render($page['footer_column_fifth']); ?>
+      <?php endif; ?>
     </div>
     <div class="copyRight">
       <?php if($page['bottom']): ?>

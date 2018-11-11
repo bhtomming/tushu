@@ -59,15 +59,27 @@ function book_menu_tree__main_menu($variables) {
 }
 
 
-function get_notice(){
+function get_notices(){
   $query = db_select('node','n');
-  $query->join('field_data_body','b','b.entity_id = n.nid');
-  $query->condition('n.type', 'recommend','=');
-  $query->fields('n',['title']);
-  $query->fields('b',['body_value']);
+    $query->join('taxonomy_index','ti','ti.nid = n.nid');
+    $query->join('taxonomy_term_data','t','t.tid = ti.tid');
+  $query->condition('n.type', 'article','=');
+    $query->condition('t.name', '通知公告','=');
+  $query->fields('n',['nid','title']);
   $query->orderBy('n.nid','DESC');
-  $query->range(0,1);
-  return $query->execute()->fetchObject();
+  $query->range(0,6);
+  return $query->execute();
+}
+
+function get_notice(){
+    $query = db_select('node','n');
+    $query->join('field_data_body','b','b.entity_id = n.nid');
+    $query->condition('n.type', 'recommend','=');
+    $query->fields('n',['title']);
+    $query->fields('b',['body_value']);
+    $query->orderBy('n.nid','DESC');
+    $query->range(0,1);
+    return $query->execute()->fetchObject();
 }
 
 function get_slider(){
@@ -86,18 +98,23 @@ function get_feature_server(){
   $query = db_select('node','n');
   $query->join('field_data_body','b','b.entity_id = n.nid');
   $query->condition('n.type', 'feature_server','=');
-  $query->fields('n',['title']);
+  //$query->join('taxonomy_index','ti','ti.nid = n.nid');
+  //$query->join('taxonomy_term_data','t','t.tid = ti.tid');
+  $query->fields('n',['nid','title']);
   $query->fields('b',['body_value']);
   $query->orderBy('n.changed','DESC');
   $query->range(0,6);
   return $query->execute();
 }
 
-function get_boutique(){
+function get_boutique($type){
   $query = db_select('node','n');
-  $query->join('field_data_title_img','t','t.entity_id = n.nid');
-  $query->join('file_managed','f','f.fid = t.title_img_fid');
-  $query->condition('n.type', 'activity','=');
+  $query->join('field_data_field_image','i','i.entity_id = n.nid');
+  $query->join('file_managed','f','f.fid = i.field_image_fid');
+  $query->join('taxonomy_index','ti','ti.nid = n.nid');
+  $query->join('taxonomy_term_data','t','t.tid = ti.tid');
+  $query->condition('n.type', 'article','=');
+  $query->condition('t.name', $type,'=');
   $query->fields('n',['nid','title']);
   $query->fields('f',['uri']);
   $query->orderBy('n.created','DESC');
@@ -105,19 +122,20 @@ function get_boutique(){
   return $query->execute();
 }
 
-function get_resources(){
+/*function get_resources(){
   $query = db_select('node','n');
-  $query->join('field_data_image','t','t.entity_id = n.nid');
+    $query->join('field_data_field_image','i','i.entity_id = n.nid');
   $query->join('file_managed','f','f.fid = t.field_image_fid');
   $query->join('taxonomy_index','ti','ti.nid = n.nid');
   $query->join('taxonomy_term_data','t','t.tid = ti.tid');
+    $query->condition('n.type', 'resources','=');
   $query->condition('t.name', '数字资源','=');
   $query->fields('n',['nid','title']);
   $query->fields('f',['uri']);
   $query->orderBy('n.created','DESC');
-  $query->range(0,5);
+  $query->range(0,8);
   return $query->execute();
-}
+}*/
 
 function node_pre($nid){
   $node = node_load($nid);

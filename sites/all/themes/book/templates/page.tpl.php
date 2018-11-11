@@ -36,12 +36,14 @@
   </div>
 </div>
 <div class="subNavig main">
+  <div class="wrap">
  <?php if($breadcrumb): ?>
       <?php
       $breadcrumb = str_replace('<h2 class="element-invisible">当前位置</h2><div class="breadcrumb">','<div class="wrap">当前位置：',$breadcrumb);
       print $breadcrumb; endif;
       ?>
   <?php print $messages; ?>
+  </div>
 </div>
 <div class="main">
   <div class="wrap clear">
@@ -57,21 +59,25 @@
 <div class="footer main">
   <div class="wrap">
     <div class="top clear">
-      <div class="links fl">
+      <?php if($page['footer_column_first']): ?>
         <?php print render($page['footer_column_first']); ?>
-      </div>
-      <div class="links fl">
+      <?php endif; ?>
+
+      <?php if($page['footer_column_second']): ?>
         <?php print render($page['footer_column_second']); ?>
-      </div>
-      <div class="links fl">
+      <?php endif; ?>
+
+      <?php if($page['footer_column_third']): ?>
         <?php print render($page['footer_column_third']); ?>
-      </div>
-      <div class="links fl">
+      <?php endif; ?>
+
+      <?php if($page['footer_column_fourth']): ?>
         <?php print render($page['footer_column_fourth']); ?>
-      </div>
-      <div class="wx fr">
+      <?php endif; ?>
+
+      <?php if($page['footer_column_fifth']): ?>
         <?php print render($page['footer_column_fifth']); ?>
-      </div>
+      <?php endif; ?>
     </div>
     <div class="copyRight">
       <?php print render($page['bottom']); ?>
