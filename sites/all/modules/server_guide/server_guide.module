@@ -45,21 +45,23 @@ function server_guide_permission(){
 }
 
 function server_guide_node_access($op,$node,$account){
-
-  $is_author = $account->uid == $node->uid;
-  switch ($op){
-    case 'create':
-      if(user_access('create server_guide',$account)){
-        return NODE_ACCESS_ALLOW;
-      }
-    case 'update':
-      if($is_author && user_access('edit own server_guide',$account)||user_access('edit any server_guide',$account)){
-        return NODE_ACCESS_ALLOW;
-      }
-    case 'delete':
-      if($is_author && user_access('delete own server_guide',$account)||user_access('delete any server_guide',$account)){
-        return NODE_ACCESS_ALLOW;
-      }
+  $type = is_string($node) ? $node : $node->type;
+  $is_author = is_object($node)? $account->uid == $node->uid : false;
+  if (in_array($type, node_permissions_get_configured_types())) {
+    switch ($op) {
+      case 'create':
+        if (user_access('create server_guide', $account)) {
+          return NODE_ACCESS_ALLOW;
+        }
+      case 'update':
+        if ($is_author && user_access('edit own server_guide', $account) || user_access('edit any server_guide', $account)) {
+          return NODE_ACCESS_ALLOW;
+        }
+      case 'delete':
+        if ($is_author && user_access('delete own server_guide', $account) || user_access('delete any server_guide', $account)) {
+          return NODE_ACCESS_ALLOW;
+        }
+    }
   }
 }
 

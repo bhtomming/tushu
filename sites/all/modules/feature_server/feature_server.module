@@ -44,22 +44,24 @@ function feature_server_permission(){
   );
 }
 
-function feature_server_node_access($op,$node,$account){
-
-  $is_author = $account->uid == $node->uid;
-  switch ($op){
-    case 'create':
-      if(user_access('create feature_server',$account)){
-        return NODE_ACCESS_ALLOW;
-      }
-    case 'update':
-      if($is_author && user_access('edit own feature_server',$account)||user_access('edit any feature_server',$account)){
-        return NODE_ACCESS_ALLOW;
-      }
-    case 'delete':
-      if($is_author && user_access('delete own feature_server',$account)||user_access('delete any feature_server',$account)){
-        return NODE_ACCESS_ALLOW;
-      }
+function feature_server_node_access($node,$op,$account){
+  $type = is_string($node) ? $node : $node->type;
+  $is_author = is_object($node)? $account->uid == $node->uid : false;
+  if (in_array($type, node_permissions_get_configured_types())) {
+    switch ($op) {
+      case 'create':
+        if (user_access('create feature_server', $account)) {
+          return NODE_ACCESS_ALLOW;
+        }
+      case 'update':
+        if ($is_author && user_access('edit own feature_server', $account) || user_access('edit any feature_server', $account)) {
+          return NODE_ACCESS_ALLOW;
+        }
+      case 'delete':
+        if ($is_author && user_access('delete own feature_server', $account) || user_access('delete any feature_server', $account)) {
+          return NODE_ACCESS_ALLOW;
+        }
+    }
   }
 }
 

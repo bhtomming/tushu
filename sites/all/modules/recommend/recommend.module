@@ -44,21 +44,24 @@ function recommend_permission(){
   );
 }
 
-function recommend_node_access($op,$node,$account){
-  $is_author = $account->id == $node->id;
-  switch ($op){
-    case 'create':
-      if(user_access('create recommend',$account)){
-        return NODE_ACCESS_ALLOW;
-      }
-    case 'update':
-      if($is_author && user_access('edit own recommend',$account)||user_access('edit any recommend',$account)){
-        return NODE_ACCESS_ALLOW;
-      }
-    case 'delete':
-      if($is_author && user_access('delete own recommend',$account)||user_access('delete any recommend',$account)){
-        return NODE_ACCESS_ALLOW;
-      }
+function recommend_node_access($node,$op,$account){
+  $type = is_string($node) ? $node : $node->type;
+  $is_author = is_object($node)? $account->uid == $node->uid : false;
+  if (in_array($type, node_permissions_get_configured_types())) {
+    switch ($op) {
+      case 'create':
+        if (user_access('create recommend', $account)) {
+          return NODE_ACCESS_ALLOW;
+        }
+      case 'update':
+        if ($is_author && user_access('edit own recommend', $account) || user_access('edit any recommend', $account)) {
+          return NODE_ACCESS_ALLOW;
+        }
+      case 'delete':
+        if ($is_author && user_access('delete own recommend', $account) || user_access('delete any recommend', $account)) {
+          return NODE_ACCESS_ALLOW;
+        }
+    }
   }
 }
 
